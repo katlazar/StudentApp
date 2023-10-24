@@ -12,9 +12,14 @@ import com.example.studentapp.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -24,7 +29,9 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping("/students")
-    public String getStudentsList() {
+    public String getStudentsList(Model model) {
+        List<StudentModel> studentList = studentService.getStudentList();
+        model.addAttribute("studentModel", studentList);
         return "persons/personList";
     }
 
@@ -39,9 +46,23 @@ public class StudentController {
         return new RedirectView("/students");
     }
 
-    @GetMapping("/editStudent")
-    public String getEditStudent() {
-        log.info("odpaliliśmy edit");
+    @GetMapping("/editStudent/{id}")
+    public String getEditStudent(@PathVariable("id") Long id, Model model) {
+        log.info("odpaliliśmy edit path: {}",id);
+        StudentModel student = studentService.getStudentById(id);
+        model.addAttribute("studentModel", student);
         return "persons/editPerson";
+    }
+
+    @PostMapping("/editStudent/{id}")
+    public RedirectView postEditStudent(@PathVariable("id") Long id, StudentModel student) {
+        studentService.saveEditStudent(student);
+        return new RedirectView("/editStudent/{id}");
+    }
+
+    @PostMapping("/delete/{id}")
+    public RedirectView postAddStudent(@PathVariable("id") Long id) {
+        studentService.delStudent(id);
+        return new RedirectView("/students");
     }
 }
