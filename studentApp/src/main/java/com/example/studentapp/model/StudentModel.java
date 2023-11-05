@@ -3,6 +3,8 @@ package com.example.studentapp.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,4 +24,7 @@ public class StudentModel {
     private String gitHub;
 
     private String start;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    private Set<TaskModel> tasks = new HashSet<>();
 }
