@@ -2,7 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@include file="../dynamic/css.jspf" %>
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <%@include file="../dynamic/head.jspf" %>
+</head>
 
 <body id="page-top">
 
@@ -136,7 +142,8 @@
                                 <div class="col-md-9 col-sm-9 col-xs-9">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <label class="radio-inline"><input type="radio" value="success" checked name="color">
+                                            <label class="radio-inline"><input type="radio" value="success" checked
+                                                                               name="color">
                                                 <i class="btn btn-success btn-circle btn-sm"></i> poziom junior</label>
                                         </div>
                                         <div class="col-sm-2">
@@ -144,11 +151,13 @@
                                                 <i class="btn btn-info btn-circle btn-sm"></i> poziom junior+</label>
                                         </div>
                                         <div class="col-sm-2">
-                                            <label class="radio-inline"><input type="radio" value="secondary" name="color">
+                                            <label class="radio-inline"><input type="radio" value="secondary"
+                                                                               name="color">
                                                 <i class="btn btn-secondary btn-circle btn-sm"></i> poziom mid</label>
                                         </div>
                                         <div class="col-sm-2">
-                                            <label class="radio-inline"><input type="radio" value="primary" name="color">
+                                            <label class="radio-inline"><input type="radio" value="primary"
+                                                                               name="color">
                                                 <i class="btn btn-primary btn-circle btn-sm"></i> poziom mid+</label>
                                         </div>
                                         <div class="col-sm-2">
@@ -174,7 +183,13 @@
         <!-- End of Main Content -->
 
         <%@include file="../dynamic/footer.jspf" %>
-        <%@include file="../dynamic/javaScript.jspf" %>
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+<%@include file="../dynamic/logout.jspf" %>
+<%@include file="../dynamic/javaScript.jspf" %>
 
 </body>
 

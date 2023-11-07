@@ -2,7 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@include file="../dynamic/css.jspf" %>
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <%@include file="../dynamic/head.jspf" %>
+</head>
 
 <body id="page-top">
 
@@ -139,7 +145,14 @@
         <!-- End of Main Content -->
 
         <%@include file="../dynamic/footer.jspf" %>
-        <%@include file="../dynamic/javaScript.jspf" %>
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<%@include file="../dynamic/logout.jspf" %>
+<%@include file="../dynamic/javaScript.jspf" %>
 
 </body>
 
