@@ -103,7 +103,7 @@
                                         <label for="firstName" class="col-2 col-form-label">Wybierz kursanta</label>
                                         <div class="col-10">
                                             <select class="form-control" id="sel1" name="student.id">
-                                                <option hidden>wybierz</option>
+                                                <option hidden>${taskModel.student.firstName} ${taskModel.student.lastName}</option>
                                                 <c:forEach items="${studentModel}" var="student">
                                                     <option value="${student.id}">${student.firstName} ${student.lastName}</option>
                                                 </c:forEach>
@@ -126,7 +126,7 @@
                                         <label class="col-2 col-form-label">Treść zadania:</label>
                                         <div class="col-10">
                                             <textarea class="form-control" rows="5" name="description"
-                                                      placeholder="tutaj opisz zadanie..."></textarea>
+                                                      placeholder="tutaj opisz zadanie...">${taskModel.description}</textarea>
                                         </div>
                                     </div>
 

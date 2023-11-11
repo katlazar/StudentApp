@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -46,9 +47,16 @@ public class TaskController {
 
     @PostMapping("/addTask")
     public RedirectView postAddTask(TaskModel task) {
-        task.setCreationDate(LocalDate.now());
+        //task.setCreationDate(LocalDate.now());
         taskService.addTask(task);
         return new RedirectView("/tasks");
+    }
+
+    @GetMapping("/editTask/{id}")
+    public String editTask(@PathVariable("id") Long id, Model model) {
+        TaskModel task = taskService.getTaskById(id);
+        model.addAttribute("taskModel", task);
+        return "tasks/editTask";
     }
 
 }

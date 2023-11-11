@@ -147,6 +147,7 @@
 
                         <div class="col-lg-10">
                             <c:forEach items="${taskModel}" var="task">
+                                <a href='<c:url value="/editTask/${task.id}"/>'>
                                 <div class="card mb-4 py-3 border-left-${task.color}">
                                     <div class="card-body">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">${task.student.firstName} ${task.student.lastName}
@@ -155,6 +156,7 @@
                                             ${task.description}
                                     </div>
                                 </div>
+                                </a>
                             </c:forEach>
 
                         </div>
